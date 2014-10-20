@@ -16,10 +16,9 @@ var cirNum = 6;
 
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(700, 700);
   beatsPerMeasure = 16;
-  beatLeng = 60000.0/bpm;
-  for (var i = 0; i <= beatsPerMeasure; i++) {
+    for (var i = 0; i <= beatsPerMeasure; i++) {
     oscillators.push( new p5.Oscillator());
     envelopes.push( new p5.Env(0.005, 0.65, random(.2,.4), random(0.2, .4) ));
   }
@@ -160,6 +159,7 @@ Circle.prototype.playNote = function(n) {
     //this.osc.setType('triangle');
     this.osc.freq(midiToFreq(n));
     if(this.arcs[currentBeat].isOn){
+        console.log("this far")
         this.env.play(this.osc);
       }
     current++;
